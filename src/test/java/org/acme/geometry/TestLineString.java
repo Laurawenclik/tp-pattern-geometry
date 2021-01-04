@@ -54,4 +54,23 @@ public class TestLineString {
 		LineString line = new LineString();
 		Assert.assertEquals("LineString", line.getType());
 	}
+
+	
+	public void testIsEmpty() {
+		Coordinate c = new Coordinate(1, 2);
+		Point p1 = new Point();
+		Point p2 = new Point(c);
+		List<Point> listPoint = new ArrayList<Point>();
+		listPoint.add(p1);
+		listPoint.add(p2);
+		LineString line = new LineString(listPoint);
+		
+		List<Point> listPoint2 = new ArrayList<Point>();
+		listPoint.add(p2);
+		listPoint.add(p2);
+		LineString line2 = new LineString(listPoint2);
+		
+		Assert.assertTrue(line.isEmpty());
+		Assert.assertFalse(line2.isEmpty());
+	}
 }

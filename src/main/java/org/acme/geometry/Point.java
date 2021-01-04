@@ -19,7 +19,16 @@ public class Point implements Geometry{
 	
 	@Override
 	public String getType() {
-		return "point";
+		return "Point";
+	}
+	@Override
+	public Boolean isEmpty() {
+		if(coordinate.isEmpty()) {
+			return true;
+		}else {
+			return false;
+		}
+		
 	}
 	
 

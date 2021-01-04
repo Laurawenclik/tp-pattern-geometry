@@ -10,8 +10,8 @@ public class Coordinate {
 	}
 	public Coordinate() {
 		super();
-		this.x = 0.0;
-		this.y = 0.0;
+		this.x = Double.NaN;
+		this.y = Double.NaN;
 	}
 	public double getX() {
 		return x;
@@ -19,7 +19,14 @@ public class Coordinate {
 	public double getY() {
 		return y;
 	}
-	
+	public Boolean isEmpty() {
+		if(Double.isNaN(this.x)|| Double.isNaN(this.y)) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
 	
 
 }
