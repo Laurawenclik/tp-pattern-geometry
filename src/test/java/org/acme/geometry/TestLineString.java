@@ -73,4 +73,23 @@ public class TestLineString {
 		Assert.assertTrue(line.isEmpty());
 		Assert.assertFalse(line2.isEmpty());
 	}
+	
+	
+	@Test
+	public void testTranslate() {
+		Coordinate c1 = new Coordinate(1, 2);
+		Coordinate c2 = new Coordinate(3, 4);
+		Point p1 = new Point(c1);
+		Point p2 = new Point(c2);
+		List<Point> listPoint = new ArrayList<Point>();
+		listPoint.add(p1);
+		listPoint.add(p2);
+		LineString line = new LineString(listPoint);
+		
+		line.translate(1, 1);
+		
+		Assert.assertEquals(2, line.getPoints().get(0).getCoordinate().getX(), EPSILON);
+		Assert.assertEquals(4, line.getPoints().get(1).getCoordinate().getX(), EPSILON);
+	}
+	
 }

@@ -1,5 +1,8 @@
 package org.acme.geometry;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -33,5 +36,16 @@ public class PointTest {
 		Point p = new Point(c);
 		Assert.assertTrue(p_empty.isEmpty());
 		Assert.assertFalse(p.isEmpty());
+	}
+	
+	
+
+	@Test
+	public void testTranslate() {
+		Coordinate c = new Coordinate(1, 2);
+		Point p = new Point(c);
+		p.translate(1, 1);
+		Assert.assertEquals(2, p.getCoordinate().getX(), EPSILON);
+		Assert.assertEquals(3, p.getCoordinate().getY(), EPSILON);
 	}
 }

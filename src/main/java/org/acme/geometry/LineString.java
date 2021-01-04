@@ -44,5 +44,13 @@ public class LineString implements Geometry {
 		return false;
 	}
 	
+	@Override
+	public void translate(double dx, double dy) {
+		for (Iterator<Point> iterator = this.points.iterator(); iterator.hasNext();) {
+			Point point = (Point) iterator.next();
+			point.translate(dx, dy);
+		}
+	}
+	
 
 }
