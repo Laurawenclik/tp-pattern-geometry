@@ -20,6 +20,7 @@ public abstract class AbstactGeometry implements Geometry{
 		accept(b);
 		return b.build();
 	}
+	
 	public abstract Geometry clone();
 	
 	
