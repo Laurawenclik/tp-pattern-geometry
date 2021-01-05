@@ -45,20 +45,30 @@ public class LineString implements Geometry {
 	}
 	
 	@Override
-	public void translate(double dx, double dy) {
+	public void translate(double x, double y) {
 		for (Iterator<Point> iterator = this.points.iterator(); iterator.hasNext();) {
 			Point point = (Point) iterator.next();
-			point.translate(dx, dy);
+			point.translate(x, y);
 		}
 	}
 	
 	@Override
 	public LineString clone() {
-		List<Point> points_clone = new ArrayList<Point>();
+		List<Point> points_c = new ArrayList<Point>();
 		for (Iterator<Point> iterator = this.points.iterator(); iterator.hasNext();) {
 			Point point = (Point) iterator.next();
-			points_clone.add(new Point(point.getCoordinate()));
+			points_c.add(new Point(point.getCoordinate()));
 		}
-		return new LineString(points_clone);
+		return new LineString(points_c);
+	}
+	
+	@Override
+	public Envelope getEnvelope() {
+		EnvelopeBuilder build = new EnvelopeBuilder();
+		for(Iterator<Point> iterator = this.points.iterator(); iterator.hasNext();) {
+			Point p = (Point) iterator.next();
+			build.insert(p.getCoordinate());
+		}
+		return build.build();
 	}
 }

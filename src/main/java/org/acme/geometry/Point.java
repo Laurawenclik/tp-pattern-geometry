@@ -42,5 +42,14 @@ public class Point implements Geometry{
 		return new Point(this.coordinate);
 	}
 	
+	@Override
+	public Envelope getEnvelope() {
+		EnvelopeBuilder build = new EnvelopeBuilder();
+
+		build.insert(this.coordinate);
+		
+		return build.build();
+	}
+	
 
 }

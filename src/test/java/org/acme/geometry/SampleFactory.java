@@ -5,18 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SampleFactory {
-	public static Point createPointA() {
+	public static Point createPoint1() {
 		return new Point(new Coordinate(2, 2));
 	}
 
-	public static Point createPointB() {
+	public static Point createPoint2() {
 		return new Point(new Coordinate(1,3));
 	}
 
 	public static LineString createLineString() {
 		List<Point> listPoint = new ArrayList<Point>();
-		listPoint.add(createPointA());
-		listPoint.add(createPointB());
+		listPoint.add(createPoint1());
+		listPoint.add(createPoint2());
 		return new LineString(listPoint);
 	}
 
