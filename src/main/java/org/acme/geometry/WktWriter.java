@@ -14,8 +14,8 @@ public class WktWriter {
 		}else if (geom instanceof LineString) {
 			LineString l = (LineString) geom;
 			String ret2 = "LINESTRING(";
-			for(Iterator<Point> iterator = l.getPoints().iterator(); iterator.hasNext();) {
-				Point p = (Point) iterator.next();
+			for(Iterator<Point> i = l.getPoints().iterator(); i.hasNext();) {
+				Point p = (Point) i.next();
 				ret2 += p.getCoordinate().getX() + " " + p.getCoordinate().getY()+"," ;
 			}
 			ret2 = ret2.substring(0, ret2.length()-1) + ")";

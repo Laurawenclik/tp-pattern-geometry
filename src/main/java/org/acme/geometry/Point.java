@@ -51,5 +51,10 @@ public class Point implements Geometry{
 		return build.build();
 	}
 	
+	@Override 
+	public void accept(GeometryVisitor visitor) {
+		visitor.visit(this);
+	}
+	
 
 }

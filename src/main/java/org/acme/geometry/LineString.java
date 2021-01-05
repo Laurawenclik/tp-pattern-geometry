@@ -35,8 +35,8 @@ public class LineString implements Geometry {
 	
 	@Override
 	public Boolean isEmpty() {
-		for (Iterator<Point> iterator = points.iterator(); iterator.hasNext();) {
-			Point point = (Point) iterator.next();
+		for (Iterator<Point> i = points.iterator(); i.hasNext();) {
+			Point point = (Point) i.next();
 			if(point.isEmpty()) {
 				return true;
 			}
@@ -46,8 +46,8 @@ public class LineString implements Geometry {
 	
 	@Override
 	public void translate(double x, double y) {
-		for (Iterator<Point> iterator = this.points.iterator(); iterator.hasNext();) {
-			Point point = (Point) iterator.next();
+		for (Iterator<Point> i = this.points.iterator(); i.hasNext();) {
+			Point point = (Point) i.next();
 			point.translate(x, y);
 		}
 	}
@@ -55,8 +55,8 @@ public class LineString implements Geometry {
 	@Override
 	public LineString clone() {
 		List<Point> points_c = new ArrayList<Point>();
-		for (Iterator<Point> iterator = this.points.iterator(); iterator.hasNext();) {
-			Point point = (Point) iterator.next();
+		for (Iterator<Point> i = this.points.iterator(); i.hasNext();) {
+			Point point = (Point) i.next();
 			points_c.add(new Point(point.getCoordinate()));
 		}
 		return new LineString(points_c);
@@ -65,10 +65,15 @@ public class LineString implements Geometry {
 	@Override
 	public Envelope getEnvelope() {
 		EnvelopeBuilder build = new EnvelopeBuilder();
-		for(Iterator<Point> iterator = this.points.iterator(); iterator.hasNext();) {
-			Point p = (Point) iterator.next();
+		for(Iterator<Point> i = this.points.iterator(); i.hasNext();) {
+			Point p = (Point) i.next();
 			build.insert(p.getCoordinate());
 		}
 		return build.build();
 	}
+	@Override 
+	public void accept(GeometryVisitor visitor) {
+		visitor.visit(this);
+	}
+
 }

@@ -23,8 +23,8 @@ public class EnvelopeBuilder {
 		envelope.set(1, this.coordinates.get(0).getY());
 		envelope.set(2, this.coordinates.get(0).getX());
 		envelope.set(3, this.coordinates.get(0).getY());
-		for(Iterator<Coordinate> iterator = this.coordinates.iterator(); iterator.hasNext();) {
-			Coordinate c = (Coordinate) iterator.next();
+		for(Iterator<Coordinate> i = this.coordinates.iterator(); i.hasNext();) {
+			Coordinate c = (Coordinate) i.next();
 			envelope.set(0, Math.min(envelope.get(0), c.getX()));
 			envelope.set(1, Math.min(envelope.get(1), c.getY()));
 			envelope.set(2, Math.max(envelope.get(2), c.getX()));
