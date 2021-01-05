@@ -18,20 +18,20 @@ public class EnvelopeBuilder {
 	}
 
 	public Envelope build() {
-		List<Double> enveloppe = Arrays.asList(new Double[4]);
-		enveloppe.set(0, this.coordinates.get(0).getX());
-		enveloppe.set(1, this.coordinates.get(0).getY());
-		enveloppe.set(2, this.coordinates.get(0).getX());
-		enveloppe.set(3, this.coordinates.get(0).getY());
+		List<Double> envelope = Arrays.asList(new Double[4]);
+		envelope.set(0, this.coordinates.get(0).getX());
+		envelope.set(1, this.coordinates.get(0).getY());
+		envelope.set(2, this.coordinates.get(0).getX());
+		envelope.set(3, this.coordinates.get(0).getY());
 		for(Iterator<Coordinate> iterator = this.coordinates.iterator(); iterator.hasNext();) {
 			Coordinate c = (Coordinate) iterator.next();
-			enveloppe.set(0, Math.min(enveloppe.get(0), c.getX()));
-			enveloppe.set(1, Math.min(enveloppe.get(1), c.getY()));
-			enveloppe.set(2, Math.max(enveloppe.get(2), c.getX()));
-			enveloppe.set(3, Math.max(enveloppe.get(3), c.getY()));
+			envelope.set(0, Math.min(envelope.get(0), c.getX()));
+			envelope.set(1, Math.min(envelope.get(1), c.getY()));
+			envelope.set(2, Math.max(envelope.get(2), c.getX()));
+			envelope.set(3, Math.max(envelope.get(3), c.getY()));
 		}
 
-		return new Envelope(new Coordinate(enveloppe.get(0), enveloppe.get(1)), new Coordinate(enveloppe.get(2), enveloppe.get(3)));
+		return new Envelope(new Coordinate(envelope.get(0), envelope.get(1)), new Coordinate(envelope.get(2), envelope.get(3)));
 	}
 
 	public List<Coordinate> getCoordinates() {
