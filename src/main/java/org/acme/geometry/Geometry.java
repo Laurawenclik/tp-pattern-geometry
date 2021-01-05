@@ -9,4 +9,5 @@ public interface Geometry {
 	public Envelope getEnvelope();
 	public void accept(GeometryVisitor visitor);
 
+
 }
