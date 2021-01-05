@@ -50,6 +50,7 @@ public class LineString extends AbstactGeometry {
 			Point point = (Point) i.next();
 			point.translate(x, y);
 		}
+		this.triggerChange();
 	}
 	
 	@Override
