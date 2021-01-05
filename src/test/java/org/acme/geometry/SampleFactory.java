@@ -6,7 +6,7 @@ import java.util.List;
 
 public class SampleFactory {
 	public static Point createPoint1() {
-		return new Point(new Coordinate(2, 2));
+		return new Point(new Coordinate(2,2));
 	}
 
 	public static Point createPoint2() {
