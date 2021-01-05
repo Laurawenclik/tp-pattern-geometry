@@ -62,15 +62,6 @@ public class LineString extends AbstactGeometry {
 		return new LineString(points_c);
 	}
 	
-	@Override
-	public Envelope getEnvelope() {
-		EnvelopeBuilder build = new EnvelopeBuilder();
-		for(Iterator<Point> i = this.points.iterator(); i.hasNext();) {
-			Point p = (Point) i.next();
-			build.insert(p.getCoordinate());
-		}
-		return build.build();
-	}
 	@Override 
 	public void accept(GeometryVisitor visitor) {
 		visitor.visit(this);

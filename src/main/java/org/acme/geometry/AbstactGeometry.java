@@ -7,5 +7,12 @@ public abstract class AbstactGeometry implements Geometry{
 		return visitor.getResult();
 	
 	}
+	
+	
+	public Envelope getEnvelope() {
+		EnvelopeBuilder b = new EnvelopeBuilder();
+		accept(b);
+		return b.build();
+	}
 	public abstract Geometry clone();
 }

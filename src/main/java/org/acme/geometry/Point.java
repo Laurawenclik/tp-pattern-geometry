@@ -42,15 +42,6 @@ public class Point extends AbstactGeometry{
 		return new Point(this.coordinate);
 	}
 	
-	@Override
-	public Envelope getEnvelope() {
-		EnvelopeBuilder build = new EnvelopeBuilder();
-
-		build.insert(this.coordinate);
-		
-		return build.build();
-	}
-	
 	@Override 
 	public void accept(GeometryVisitor visitor) {
 		visitor.visit(this);
